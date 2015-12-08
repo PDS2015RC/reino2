@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  issuer_url: MyString
+  issuer_organization: MyString
+  earner_email: MyString
+  name: MyString
+  description: MyString
+  img_url: MyString
+  issued_on: 2015-11-28
+
+two:
+  issuer_url: MyString
+  issuer_organization: MyString
+  earner_email: MyString
+  name: MyString
+  description: MyString
+  img_url: MyString
+  issued_on: 2015-11-28

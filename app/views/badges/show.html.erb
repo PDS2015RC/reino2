@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Issuer url:</strong>
+  <%= @badge.issuer_url %>
+</p>
+
+<p>
+  <strong>Issuer organization:</strong>
+  <%= @badge.issuer_organization %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @badge.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @badge.description %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @badge.img_url %>
+</p>
+
+<%= link_to 'Edit', edit_badge_path(@badge) %> |
+<%= link_to 'Back', badges_path %>

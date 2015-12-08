@@ -1,0 +1,2 @@
+module LineBadgesHelper
+end

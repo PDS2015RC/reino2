@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Line Badges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Badge</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_badges.each do |line_badge| %>
+      <tr>
+        <td><%= line_badge.badge %></td>
+        <td><%= line_badge.user %></td>
+        <td><%= link_to 'Show', line_badge %></td>
+        <td><%= link_to 'Edit', edit_line_badge_path(line_badge) %></td>
+        <td><%= link_to 'Destroy', line_badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line badge', new_line_badge_path %>

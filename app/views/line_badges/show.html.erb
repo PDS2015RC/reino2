@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Badge:</strong>
+  <%= @line_badge.badge %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @line_badge.user %>
+</p>
+
+<%= link_to 'Edit', edit_line_badge_path(@line_badge) %> |
+<%= link_to 'Back', line_badges_path %>
