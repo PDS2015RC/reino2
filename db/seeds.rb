@@ -174,3 +174,5 @@ Lesson.create(url: '88DuNsoq8Xs', subject: 'operadores_aritimétricos')
 Lesson.create(url: '5o3j4Y1WFc8', subject: 'operadores_lógicos')
 Lesson.create(url: 'GmwD4I1gobQ', subject: 'métodos_de_strings')
 Lesson.create(url: '-GhA2JPImgU', subject: 'git')
+
+Badge.create(issuer_url: 'www.reinodocodigo.com.br', issuer_organization: 'Reino do Codigo', name: 'loops', description: 'Badge adquirida por concluir o conteúdo sobre loops', img_url: 'badge1.png')

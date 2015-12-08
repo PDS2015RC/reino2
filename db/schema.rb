@@ -11,16 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128181229) do
+ActiveRecord::Schema.define(version: 20151208221006) do
 
   create_table "badges", force: :cascade do |t|
     t.string   "issuer_url",          limit: 255
     t.string   "issuer_organization", limit: 255
-    t.string   "earner_email",        limit: 255
     t.string   "name",                limit: 255
     t.string   "description",         limit: 255
     t.string   "img_url",             limit: 255
-    t.date     "issued_on"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
@@ -83,10 +81,11 @@ ActiveRecord::Schema.define(version: 20151128181229) do
   end
 
   create_table "line_badges", force: :cascade do |t|
-    t.integer  "badge_id",   limit: 4
-    t.integer  "user_id",    limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "badge_id",     limit: 4
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "earner_email", limit: 255
   end
 
   add_index "line_badges", ["badge_id"], name: "index_line_badges_on_badge_id", using: :btree
