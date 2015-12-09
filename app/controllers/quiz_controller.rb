@@ -7,7 +7,7 @@ class QuizController < ApplicationController
     if(@characters.size >= 1)
   	   @lesson = Lesson.new(lesson_params)
   	   @video = @lesson.url
-  	   @questions = Question.where(lesson: @lesson.subject).order("RANDOM()").limit(5)
+  	   @questions = Question.where(lesson: @lesson.subject).order("RAND()").limit(5)
     else
       redirect_to characters_url
     end
@@ -75,18 +75,26 @@ class QuizController < ApplicationController
       @done_lesson.score = @result  
       @done_lesson.save
       @xp_mult = @result * 10
-    @gold_mult = @result * 5 
-    @character.correct += @result
-    @character.wrong += 5 - @result
-    @character.xp += @xp_mult
-    @character.gold += @gold_mult
-    @win = true
+      @gold_mult = @result * 5 
+      @character.correct += @result
+      @character.wrong += 5 - @result
+      @character.xp += @xp_mult
+      @character.gold += @gold_mult
+      @win = true
     if @character.xp >= 200 
       @character.xp = 0
       @character.level += 1
     end
       @character.save
     end
+
+    if @result == 5
+      @new_badge = LineBadge.new
+      @new_badge.badge_id = 1
+      @new_badge.user_id = current_user.id
+      @new_badge.earner_email = current_user.email
+      @new_badge.save
+    end 
     
 
   end  
