@@ -16,6 +16,7 @@
       <tr>
         <td><%= line_badge.badge %></td>
         <td><%= line_badge.user %></td>
+        <td><%=button_to 'Compartilhar', {:controller => "line_badges", :action => "badge_wall_share", :badge_id => line_badge.badge_id} , :method=>:post, class: "btn btn-warning"%></td>
         <td><%= link_to 'Show', line_badge %></td>
         <td><%= link_to 'Edit', edit_line_badge_path(line_badge) %></td>
         <td><%= link_to 'Destroy', line_badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>

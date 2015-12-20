@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   
   
 
-  resources :line_badges
+  resources :line_badges do
+    collection do 
+      post :badge_wall_share
+    end
+  end  
+
   resources :badges
   resources :done_lessons
   get 'admin/index'

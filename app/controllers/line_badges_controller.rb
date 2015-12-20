@@ -1,10 +1,12 @@
+require "net/http"
+
 class LineBadgesController < ApplicationController
   before_action :set_line_badge, only: [:show, :edit, :update, :destroy]
 
   # GET /line_badges
   # GET /line_badges.json
   def index
-    @line_badges = LineBadge.all
+    @line_badges = LineBadge.where(User_id: current_user)
   end
 
   # GET /line_badges/1
@@ -59,6 +61,21 @@ class LineBadgesController < ApplicationController
       format.html { redirect_to line_badges_url, notice: 'Line badge was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+
+  def badge_wall_share
+    @badge_id = params[:badge_id]
+    @badge = Badge.find(@badge_id)
+    @email = current_user.email
+    @name = @badge.name
+    @description = @badge.description
+    @img = @badge.img_url
+
+    uri = URI.parse("http://localhost:4444/badges/new")
+    response = Net::HTTP.post_form(uri, {"issuer_url" => "reino.com", 
+      "issuer_organization" => "reino", "earner_email" => @email, "name" => @name, 
+      "description" => @description, "img_url" => @img})
   end
 
   private
