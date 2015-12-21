@@ -72,7 +72,7 @@ class LineBadgesController < ApplicationController
     @description = @badge.description
     @img = @badge.img_url
 
-    uri = URI.parse("http://localhost:4444/badges/new")
+    uri = URI.parse("http://localhost:4444/badges/")
     response = Net::HTTP.post_form(uri, {"issuer_url" => "reino.com", 
       "issuer_organization" => "reino", "earner_email" => @email, "name" => @name, 
       "description" => @description, "img_url" => @img})
