@@ -1,25 +1,30 @@
-<h2 class="text-center">Seu Personagem</h2>
 
-<div class="container">
+<br>
+<div class="container fundoboneco">
 <br>
 <div class="row">
-  <div role="main" class="col-md-3 thumbnail col-char">
-
+  <div role="main" class="col-md-3 thumbnail col-char col-inventario">
+  <h3>Inventario: </h3>
     <%if @characters.size >= 1%>
     <% @characters.each do |character| %>
     <h2><%= character.name %></h2>
-    <h3>Level: <%= character.level %></h3>
-    <h3>xp: <%= character.xp %></h3>
-    <h3>Gold: <%= character.gold %></h3>
+    <hr style="border: 2px solid rgba(255, 255, 255, 0.44)">
+
+  
+
+      
+  <%= link_to image_tag("bag.png", :border => 0, :class => 'list_image'), inventories_url %>
+  <hr style="border: 1px solid rgba(255, 255, 255, 0.44)">
+    <%= link_to 'Deletar', character, method: :delete, data: { confirm: 'Cuidado, tem certeza que quer deletar seu personagem?' }, class: "btn btn-danger pull-right" %>
   </div>
   <div class="col-md-1 col-char">
     
   </div>
   
-  <aside role="complementary" class="col-md-8 col-char">
-  <h3>Inventario: </h3>
-  <%= link_to image_tag("bag.png", :border => 0, :class => 'list_image'), inventories_url %>
-  <div id="canvasDiv"></div>
+  <aside role="complementary" class="col-md-8 col-char" >
+  <h2 class="text-center" style="margin-right: 253px;">Seu Personagem</h2>
+
+  <div id="canvasDiv" style="padding-top:109px;"></div>
     <script type="text/javascript">
     prepareCanvas(document.getElementById("canvasDiv"), 490, 220, "<%= @character.helmet%>", "<%= @character.armor%>", "<%= @character.shield%>", "<%= @character.weapon%>");
     change('hair', "<%= character.hair %>");
@@ -31,7 +36,7 @@
     change('rightArm', "rightArm_" + "<%= character.skin %>");
     }
     </script>
-    <%= link_to 'Deletar', character, method: :delete, data: { confirm: 'Cuidado, tem certeza que quer deletar seu personagem?' }, class: "btn btn-danger" %>
+    
     <br><br>
     <% end %>
     <% else %>
@@ -40,4 +45,7 @@
     <% end %>
     </aside>
 </div>
+
+
+
 </div>
